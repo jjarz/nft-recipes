@@ -13,6 +13,7 @@ import ERC20Balance from "components/ERC20Balance";
 import ERC20Transfers from "components/ERC20Transfers";
 import DEX from "components/DEX";
 import NFTBalance from "components/NFTBalance";
+import NFTMint from "components/NFTMint";
 import Wallet from "components/Wallet";
 import { Layout, Tabs } from "antd";
 import "antd/dist/antd.css";
@@ -117,6 +118,9 @@ const App = ({ isServerInfo }) => {
             </Route>
             <Route path="/nftBalance">
               <NFTBalance />
+            </Route>
+            <Route path="/nftMint">
+              <NFTMint />
             </Route>
             <Route path="/contract">
               <Contract />
