@@ -1,5 +1,5 @@
 import React from "react";
-import { useMoralis, useWeb3Contract } from "react-moralis";
+import { useMoralis, useWeb3ExecuteFunction } from "react-moralis";
 import { abi } from "../contracts/contractInfo.json";
 import { Input, Button } from "antd";
 
@@ -16,24 +16,35 @@ const styles = {
   },
 };
 
+/*
+ * interacting with smart contract code: https://youtu.be/7TKqLJd_aYI?t=677
+ *
+ */
 function NFTMint() {
   // will use this eventually to set properties on the NFT (like title)
   // const [nftTitle, setNFTTitle] = useState(null);
   const { account } = useMoralis();
+  const contractProcessor = useWeb3ExecuteFunction();
 
-  /*
-   * Based off of https://github.com/YosephKS/moralis-upgradeable-smart-contracts/blob/main/src/components/Home.jsx
-   */
-  const { runContractFunction, isLoading } = useWeb3Contract({
-    functionName: "mint",
-    abi,
-    contractAddress: "0x2B3E48d8E94E225D35a18b97b881dcA2D828c375",
-    params: {
-      account,
-      id: 0,
-      amount: 1,
-    },
-  });
+  // address _to,
+  // uint256 _tokenId,
+  // string memory tokenURI_
+  async function mintNFT() {
+    const options = {
+      functionName: "mint",
+      abi,
+      contractAddress: "0x8BFdc18F1025edB30777aa2A5fd07A8f94A11142",
+      params: {
+        _to: account,
+        tokenURI_:
+          "https://ipfs.io/ipfs/QmbJWAESqCsf4RFCqEY7jecCashj8usXiyDNfKtZCwwzGb?filename=nft_metadata.json",
+      },
+    };
+
+    await contractProcessor.fetch({
+      params: options,
+    });
+  }
 
   // const handleChange = (e) => {
   //   setNFTTitle(e.target.value);
@@ -45,9 +56,7 @@ function NFTMint() {
       <div style={styles.NFTs}>
         <div>
           <Input placeholder="nft title" />
-          <Button onClick={() => runContractFunction()} loading={isLoading}>
-            Mint!
-          </Button>
+          <Button onClick={() => mintNFT()}>Mint!</Button>
         </div>
       </div>
     </div>

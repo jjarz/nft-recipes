@@ -6,12 +6,12 @@ import "@openzeppelin/contracts/utils/Counters.sol";
 
 contract NFTMint is ERC721 {
     using Strings for uint256;
+    using Counters for Counters.Counter;
+    
+    Counters.Counter private _tokenIds;
     
     // Optional mapping for token URIs
     mapping (uint256 => string) private _tokenURIs;
-
-    // just using to test
-    string private message = "hello world";
 
     // Base URI
     string private _baseURIextended;
@@ -27,11 +27,6 @@ contract NFTMint is ERC721 {
         _tokenURIs[tokenId] = _tokenURI;
     }
 
-    // just a test
-    function getMessage() public view returns(string memory) {
-        return message;
-    }
-    
     function _baseURI() internal view virtual override returns (string memory) {
         return _baseURIextended;
     }
@@ -57,10 +52,13 @@ contract NFTMint is ERC721 {
     // note: may want to add access control (https://docs.openzeppelin.com/contracts/3.x/access-control) to restrict to MINTER_ROLE 
     function mint(
         address _to,
-        uint256 _tokenId,
         string memory tokenURI_
     ) public {
-        _mint(_to, _tokenId);
-        _setTokenURI(_tokenId, tokenURI_);
+        _tokenIds.increment();
+
+        uint256 newItemId = _tokenIds.current();
+        
+        _mint(_to, newItemId);
+        _setTokenURI(newItemId, tokenURI_);
     }
 }
