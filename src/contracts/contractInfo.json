@@ -15322,39 +15322,17 @@
   "ast": {
     "absolutePath": "project:/contracts/NFTMint.sol",
     "exportedSymbols": {
-      "Address": [
-        1321
-      ],
-      "Context": [
-        1343
-      ],
-      "Counters": [
-        1417
-      ],
-      "ERC165": [
-        1644
-      ],
-      "ERC721": [
-        865
-      ],
-      "IERC165": [
-        1656
-      ],
-      "IERC721": [
-        981
-      ],
-      "IERC721Metadata": [
-        1026
-      ],
-      "IERC721Receiver": [
-        999
-      ],
-      "NFTMint": [
-        1850
-      ],
-      "Strings": [
-        1620
-      ]
+      "Address": [1321],
+      "Context": [1343],
+      "Counters": [1417],
+      "ERC165": [1644],
+      "ERC721": [865],
+      "IERC165": [1656],
+      "IERC721": [981],
+      "IERC721Metadata": [1026],
+      "IERC721Receiver": [999],
+      "NFTMint": [1850],
+      "Strings": [1620]
     },
     "id": 1851,
     "license": "MIT",
@@ -15362,12 +15340,7 @@
     "nodes": [
       {
         "id": 1695,
-        "literals": [
-          "solidity",
-          "^",
-          "0.8",
-          ".0"
-        ],
+        "literals": ["solidity", "^", "0.8", ".0"],
         "nodeType": "PragmaDirective",
         "src": "32:23:11"
       },
@@ -15416,15 +15389,7 @@
         "contractKind": "contract",
         "fullyImplemented": true,
         "id": 1850,
-        "linearizedBaseContracts": [
-          1850,
-          865,
-          1026,
-          981,
-          1644,
-          1656,
-          1343
-        ],
+        "linearizedBaseContracts": [1850, 865, 1026, 981, 1644, 1656, 1343],
         "name": "NFTMint",
         "nameLocation": "178:7:11",
         "nodeType": "ContractDefinition",
@@ -15757,10 +15722,7 @@
                       "id": 1730,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        4294967278,
-                        4294967278
-                      ],
+                      "overloadedDeclarations": [4294967278, 4294967278],
                       "referencedDeclaration": 4294967278,
                       "src": "632:7:11",
                       "typeDescriptions": {
@@ -15938,9 +15900,7 @@
             "visibility": "internal"
           },
           {
-            "baseFunctions": [
-              216
-            ],
+            "baseFunctions": [216],
             "body": {
               "id": 1752,
               "nodeType": "Block",
@@ -16026,9 +15986,7 @@
             "visibility": "internal"
           },
           {
-            "baseFunctions": [
-              207
-            ],
+            "baseFunctions": [207],
             "body": {
               "id": 1819,
               "nodeType": "Block",
@@ -16116,10 +16074,7 @@
                       "id": 1761,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        4294967278,
-                        4294967278
-                      ],
+                      "overloadedDeclarations": [4294967278, 4294967278],
                       "referencedDeclaration": 4294967278,
                       "src": "982:7:11",
                       "typeDescriptions": {
@@ -16147,9 +16102,7 @@
                   "src": "982:76:11"
                 },
                 {
-                  "assignments": [
-                    1769
-                  ],
+                  "assignments": [1769],
                   "declarations": [
                     {
                       "constant": false,
@@ -16221,9 +16174,7 @@
                   "src": "1069:45:11"
                 },
                 {
-                  "assignments": [
-                    1775
-                  ],
+                  "assignments": [1775],
                   "declarations": [
                     {
                       "constant": false,
@@ -16261,9 +16212,7 @@
                       "id": 1776,
                       "name": "_baseURI",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        1753
-                      ],
+                      "overloadedDeclarations": [1753],
                       "referencedDeclaration": 1753,
                       "src": "1145:8:11",
                       "typeDescriptions": {
@@ -16975,9 +16924,7 @@
                   "src": "1903:21:11"
                 },
                 {
-                  "assignments": [
-                    1833
-                  ],
+                  "assignments": [1833],
                   "declarations": [
                     {
                       "constant": false,
@@ -17289,39 +17236,17 @@
   "legacyAST": {
     "absolutePath": "project:/contracts/NFTMint.sol",
     "exportedSymbols": {
-      "Address": [
-        1321
-      ],
-      "Context": [
-        1343
-      ],
-      "Counters": [
-        1417
-      ],
-      "ERC165": [
-        1644
-      ],
-      "ERC721": [
-        865
-      ],
-      "IERC165": [
-        1656
-      ],
-      "IERC721": [
-        981
-      ],
-      "IERC721Metadata": [
-        1026
-      ],
-      "IERC721Receiver": [
-        999
-      ],
-      "NFTMint": [
-        1850
-      ],
-      "Strings": [
-        1620
-      ]
+      "Address": [1321],
+      "Context": [1343],
+      "Counters": [1417],
+      "ERC165": [1644],
+      "ERC721": [865],
+      "IERC165": [1656],
+      "IERC721": [981],
+      "IERC721Metadata": [1026],
+      "IERC721Receiver": [999],
+      "NFTMint": [1850],
+      "Strings": [1620]
     },
     "id": 1851,
     "license": "MIT",
@@ -17329,12 +17254,7 @@
     "nodes": [
       {
         "id": 1695,
-        "literals": [
-          "solidity",
-          "^",
-          "0.8",
-          ".0"
-        ],
+        "literals": ["solidity", "^", "0.8", ".0"],
         "nodeType": "PragmaDirective",
         "src": "32:23:11"
       },
@@ -17383,15 +17303,7 @@
         "contractKind": "contract",
         "fullyImplemented": true,
         "id": 1850,
-        "linearizedBaseContracts": [
-          1850,
-          865,
-          1026,
-          981,
-          1644,
-          1656,
-          1343
-        ],
+        "linearizedBaseContracts": [1850, 865, 1026, 981, 1644, 1656, 1343],
         "name": "NFTMint",
         "nameLocation": "178:7:11",
         "nodeType": "ContractDefinition",
@@ -17724,10 +17636,7 @@
                       "id": 1730,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        4294967278,
-                        4294967278
-                      ],
+                      "overloadedDeclarations": [4294967278, 4294967278],
                       "referencedDeclaration": 4294967278,
                       "src": "632:7:11",
                       "typeDescriptions": {
@@ -17905,9 +17814,7 @@
             "visibility": "internal"
           },
           {
-            "baseFunctions": [
-              216
-            ],
+            "baseFunctions": [216],
             "body": {
               "id": 1752,
               "nodeType": "Block",
@@ -17993,9 +17900,7 @@
             "visibility": "internal"
           },
           {
-            "baseFunctions": [
-              207
-            ],
+            "baseFunctions": [207],
             "body": {
               "id": 1819,
               "nodeType": "Block",
@@ -18083,10 +17988,7 @@
                       "id": 1761,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        4294967278,
-                        4294967278
-                      ],
+                      "overloadedDeclarations": [4294967278, 4294967278],
                       "referencedDeclaration": 4294967278,
                       "src": "982:7:11",
                       "typeDescriptions": {
@@ -18114,9 +18016,7 @@
                   "src": "982:76:11"
                 },
                 {
-                  "assignments": [
-                    1769
-                  ],
+                  "assignments": [1769],
                   "declarations": [
                     {
                       "constant": false,
@@ -18188,9 +18088,7 @@
                   "src": "1069:45:11"
                 },
                 {
-                  "assignments": [
-                    1775
-                  ],
+                  "assignments": [1775],
                   "declarations": [
                     {
                       "constant": false,
@@ -18228,9 +18126,7 @@
                       "id": 1776,
                       "name": "_baseURI",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        1753
-                      ],
+                      "overloadedDeclarations": [1753],
                       "referencedDeclaration": 1753,
                       "src": "1145:8:11",
                       "typeDescriptions": {
@@ -18942,9 +18838,7 @@
                   "src": "1903:21:11"
                 },
                 {
-                  "assignments": [
-                    1833
-                  ],
+                  "assignments": [1833],
                   "declarations": [
                     {
                       "constant": false,

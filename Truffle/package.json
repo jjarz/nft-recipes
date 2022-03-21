@@ -5,7 +5,8 @@
   "author": "Julie Jarzemsky",
   "license": "MIT",
   "dependencies": {
-    "@openzeppelin/contracts": "^4.5.0"
+    "@openzeppelin/contracts": "^4.5.0",
+    "dotenv": "^16.0.0"
   },
   "scripts": {
     "compile": "truffle compile --all",
