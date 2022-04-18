@@ -5,19 +5,10 @@ import {
   useMoralisFile,
 } from "react-moralis";
 import { abi } from "../contracts/contractInfo.json";
-import {
-  Input,
-  Button,
-  Card,
-  Tooltip,
-  Form,
-  Upload,
-  Skeleton,
-  Image,
-} from "antd";
+import { Card, Tooltip, Skeleton, Image, Modal, Form } from "antd";
+import NFTMintForm from "./NFTMintForm";
 import { RiseOutlined } from "@ant-design/icons";
 // import { useVerifyMetadata } from "hooks/useVerifyMetadata";
-import { UploadOutlined } from "@ant-design/icons";
 import axios from "axios";
 
 // address, api key from .env
@@ -34,10 +25,13 @@ function NFTMint() {
   const { account } = useMoralis();
   const { saveFile } = useMoralisFile();
   const [baseRecipes, setBaseRecipes] = useState([]);
+  const [visible, setVisibility] = useState(false);
+  const [nftToRemix, setNftToRemix] = useState(null);
   const contractProcessor = useWeb3ExecuteFunction();
   const [imageFile, setImageFile] = useState();
   // const { verifyMetadata } = useVerifyMetadata();
   const { Meta } = Card;
+  const [form] = Form.useForm();
 
   const styles = {
     NFTs: {
@@ -76,6 +70,12 @@ function NFTMint() {
         console.error(error);
       });
   }, []);
+
+  const handleRemixClick = (nft) => {
+    setNftToRemix(nft);
+    form.resetFields();
+    setVisibility(true);
+  };
 
   // address _to,
   // uint256 _tokenId,
@@ -140,6 +140,7 @@ function NFTMint() {
       name: title,
       content: content,
       image: imageURI,
+      parentId: nftToRemix ? nftToRemix.tokenURI_ : 0,
     };
 
     // save the file with metadata to IPFS
@@ -155,6 +156,11 @@ function NFTMint() {
 
     // with the IPFS address, mint the NFT
     await mintNFT(nftFile.ipfs()).then(notifySuccess);
+  }
+
+  function clearForm() {
+    form.resetFields();
+    setVisibility(false);
   }
 
   console.log("Base NFTs", baseRecipes);
@@ -174,7 +180,7 @@ function NFTMint() {
                     hoverable
                     actions={[
                       <Tooltip title="Remix this Recipe">
-                        <RiseOutlined onClick={() => console.log("remixxxx")} />
+                        <RiseOutlined onClick={() => handleRemixClick(nft)} />
                       </Tooltip>,
                     ]}
                     style={{ width: 240, border: "2px solid #e7eaf3" }}
@@ -195,49 +201,24 @@ function NFTMint() {
               })}
         </div>
       </Skeleton>
+      <Modal
+        title={`Remix ${nftToRemix?.metadata?.name || "NFT"}`}
+        visible={visible}
+        onCancel={() => clearForm()}
+        onOk={() => console.log(nftToRemix)}
+        okText="Remix"
+      >
+        <NFTMintForm
+          onUpload={uploadAction}
+          onSubmit={submitForm}
+          nft={nftToRemix}
+          form={form}
+        />
+      </Modal>
       <h1>Mint a new NFT</h1>
       <div>
         <div>
-          <Form name="nft form" onFinish={submitForm} autoComplete="off">
-            <Form.Item
-              label="Recipe Title"
-              name="title"
-              rules={[
-                { required: true, message: "Please input your recipe title" },
-              ]}
-            >
-              <Input />
-            </Form.Item>
-            <Form.Item
-              label="Recipe Content"
-              name="content"
-              rules={[
-                { required: true, message: "Please input your recipe content" },
-              ]}
-            >
-              <Input.TextArea rows={6} />
-            </Form.Item>
-
-            <Form.Item
-              name="imageFile"
-              label="Recipe Image"
-              valuePropName="imageFile"
-            >
-              <Upload
-                name="logo"
-                customRequest={uploadAction}
-                listType="picture"
-              >
-                <Button icon={<UploadOutlined />}>Click to upload</Button>
-              </Upload>
-            </Form.Item>
-
-            <Form.Item>
-              <Button type="primary" htmlType="submit">
-                Submit
-              </Button>
-            </Form.Item>
-          </Form>
+          <NFTMintForm onUpload={uploadAction} onSubmit={submitForm} nft={{}} />
         </div>
       </div>
     </div>

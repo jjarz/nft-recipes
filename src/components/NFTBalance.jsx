@@ -130,6 +130,7 @@ function NFTBalance() {
         confirmLoading={isPending}
         okText="Send"
       >
+        <h1>{nftToSend?.name}</h1>
         <AddressInput autoFocus placeholder="Receiver" onChange={setReceiver} />
         {nftToSend && nftToSend.contract_type === "erc1155" && (
           <Input
