@@ -24,9 +24,6 @@ function MenuItems() {
       <Menu.Item key="/mint">
         <NavLink to="/mint">Mint</NavLink>
       </Menu.Item>
-      <Menu.Item key="/remix">
-        <NavLink to="/remix">Remix</NavLink>
-      </Menu.Item>
     </Menu>
   );
 }

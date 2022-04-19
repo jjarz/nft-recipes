@@ -87,9 +87,6 @@ const App = () => {
             <Route path="/mint">
               <NFTMint />
             </Route>
-            <Route path="/remix">
-              <NFTMint />
-            </Route>
             <Route path="/">
               <Redirect to="/mint" />
             </Route>
