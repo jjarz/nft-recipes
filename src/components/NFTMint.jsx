@@ -140,7 +140,7 @@ function NFTMint() {
       name: title,
       content: content,
       image: imageURI,
-      parentId: nftToRemix ? nftToRemix.tokenURI_ : 0,
+      parentId: nftToRemix ? nftToRemix.metadata_url : "base",
     };
 
     // save the file with metadata to IPFS
@@ -160,6 +160,7 @@ function NFTMint() {
 
   function clearForm() {
     form.resetFields();
+    setNftToRemix(null);
     setVisibility(false);
   }
 
