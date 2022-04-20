@@ -12,17 +12,6 @@ function NFTMintForm(props) {
     listType: "picture",
   };
 
-  if (nft.file_url) {
-    uploadProps.defaultFileList = [
-      {
-        name: nft.metadata?.name,
-        status: "done",
-        response: "Server Error 500", // custom error message to show
-        url: nft.file_url,
-      },
-    ];
-  }
-
   return (
     <Form
       form={props.form}
@@ -60,7 +49,7 @@ function NFTMintForm(props) {
 
       <Form.Item>
         <Button type="primary" htmlType="submit">
-          Remix
+          {props.buttonText}
         </Button>
       </Form.Item>
     </Form>
